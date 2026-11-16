@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutti a tavola</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            /* Couleur de fond de la page (visible tant que la vidéo n'est pas chargée) */
+            background-color: #ffefef;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem;
+            background: transparent;
+            /* Couleur du texte */
+            color: #3b2a20;
+            line-height: 1.5;
+        }
+
+        /* Vidéo en fond d'écran */
+        #video-fond {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Barre de navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #ffefef;
+            border: 3px solid #b8893b;
+            border-radius: 12px;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+            padding: 0.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Police + couleur + alignement des titres */
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 3rem;
+            color: black;
+            text-align: center;
+            margin: 0;
+        }
+
+        .slogan {
+            font-style: italic;
+            color: #340000;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: rgb(31, 28, 28);
+            text-align: center;
+        }
+
+        h3, h4 { color: #6b020d; }
+
+        /* Sections : blocs blancs semi-transparents avec bordure + ombre */
+        section {
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid #6b020d;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.25);
+            scroll-margin-top: 5rem;
+        }
+
+        /* Un plat = un bloc avec image à gauche */
+        .plat {
+            border-bottom: 1px dashed #6b020d;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        .plat:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .plat h3 { margin-top: 0; }
+
+        /* Les cadres englobent bien les images flottantes */
+        .plat::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        figure { margin: 0; }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        figcaption {
+            font-size: 0.85rem;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Image du plat : petite et à gauche */
+        .plat figure {
+            float: left;
+            width: 200px;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prix {
+            text-align: right;
+            font-weight: bold;
+            color: #146b02;
+        }
+
+        ol, ul { padding-left: 1.2rem; }
+
+        /* Liens : apparence normale et au survol */
+        a {
+            color: #6b020d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #ffffff;
+            background-color: #6b020d;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            color: #7a5c48;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop playsinline preload="auto" id="video-fond">
+        <source src="pizza.mp4" type="video/mp4">
+    </video>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#menu">Menu</a>
+        <a href="#reservation">Réservation</a>
+        <a href="#infos">Plus d'info</a>
+    </nav>
+
+    <header>
+        <h1>Tutti a tavola</h1>
+        <p class="slogan">La vraie cuisine italienne, à partager en famille</p>
+    </header>
+
+    <section id="accueil">
+        <h2>Bienvenue sur la page Tutti a tavola !</h2>
+        <p>Découvrez la beauté de la cuisine italienne : pâtes fraîches faites chaque matin, pizzas cuites au feu de bois et produits venus directement d'Italie.</p>
+        <p>Installez-vous, servez-vous, et surtout partagez. Voici toutes les informations à ne pas manquer !</p>
+    </section>
+
+    <section id="menu">
+        <h2>Notre carte</h2>
+
+        <article class="plat">
+            <h3>1. Pizza Margherita</h3>
+            <figure>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUuY2KblqylsFx4nepDRpCqhuRaCESzRvqfAocf4oPOg&s=10" alt="Pizza Margherita">
+                <figcaption>Notre Margherita</figcaption>
+            </figure>
+            <p>La pizza classique par excellence, cuite au feu de bois.</p>
+            <ol>
+                <li><strong>Ingrédients :</strong> sauce tomate, mozzarella fior di latte, basilic frais et huile d'olive</li>
+                <li><strong>Cuisson :</strong> four à bois, 90 secondes</li>
+                <li><strong>Accompagnement conseillé :</strong> une salade de roquette</li>
+            </ol>
+            <p class="prix">11 €</p>
+        </article>
+
+        <article class="plat">
+            <h3>2. Spaghetti alla carbonara</h3>
+            <figure>
+                <img src="spaghetti-carbonara.jpg" alt="Spaghetti alla carbonara">
+                <figcaption>Nos carbonara</figcaption>
+            </figure>
+            <p>La recette romaine, sans crème, comme en Italie.</p>
+            <ol>
+                <li><strong>Ingrédients :</strong> pâtes fraîches, guanciale, jaune d'œuf, pecorino et poivre noir</li>
+                <li><strong>Origine :</strong> Rome</li>
+            </ol>
+            <p class="prix">14 €</p>
+        </article>
+
+        <article class="plat">
+            <h3>3. Spaghetti all'italienne</h3>
+            <figure>
+                <img src="spaghetti-italienne.jpg" alt="Spaghetti all'italienne">
+                <figcaption>Nos spaghetti</figcaption>
+            </figure>
+            <p>Un grand classique simple et gourmand.</p>
+            <ol>
+                <li><strong>Ingrédients :</strong> spaghetti al dente, sauce tomate maison, basilic frais, ail et parmesan râpé</li>
+                <li><strong>Option :</strong> version végétarienne</li>
+            </ol>
+            <p class="prix">12 €</p>
+        </article>
+
+        <article class="plat">
+            <h3>4. Tiramisu maison</h3>
+            <figure>
+                <img src="tiramisu.jpg" alt="Tiramisu maison">
+                <figcaption>Notre tiramisu</figcaption>
+            </figure>
+            <p>Le dessert à partager (ou pas).</p>
+            <ol>
+                <li><strong>Ingrédients :</strong> mascarpone, café, biscuits imbibés et cacao amer</li>
+                <li><strong>Fabrication :</strong> préparé chaque jour sur place</li>
+            </ol>
+            <p class="prix">7 €</p>
+        </article>
+    </section>
+
+    <section id="galerie">
+        <h2>Images de notre restaurant</h2>
+
+        <figure>
+            <img src="salle.jpg" alt="La salle du restaurant">
+            <figcaption>La salle de Tutti a tavola</figcaption>
+        </figure>
+
+        <figure>
+            <img src="four-a-bois.jpg" alt="Le four à bois">
+            <figcaption>Notre four à bois</figcaption>
+        </figure>
+    </section>
+
+    <section id="reservation">
+        <h2>Réservation</h2>
+        <p>Envie de venir à plusieurs ? Réservez votre table par e-mail :</p>
+        <p><a href="mailto:contact@tutti-a-tavola.example">contact@tutti-a-tavola.example</a></p>
+    </section>
+
+    <section id="infos">
+        <h2>Plus d'info</h2>
+        <ol>
+            <li><strong>Horaires :</strong> tous les jours, de 12h à 14h30 et de 19h à 23h</li>
+            <li><strong>Réservation :</strong> <a href="#reservation">voir la section réservation</a></li>
+            <li><strong>Menu complet :</strong> <a href="#menu">consulter la carte</a></li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>© 2026 Tutti a tavola — Buon appetito !</p>
+    </footer>
+</body>
+</html>
